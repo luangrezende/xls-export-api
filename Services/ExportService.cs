@@ -25,19 +25,19 @@ namespace XlsExport.Api.Services
 
         public ExcelPackage GetApplicantsStatistics()
         {
-            ExcelPackage p = CreateDoc("Applicant Statistics", "Applicant statistics", "All Applicants");
-            var worksheet = p.Workbook.Worksheets.Add("Applicant Statistics");
+            ExcelPackage p = CreateDoc("titulo", "assunto", "palavraChave");
+            var worksheet = p.Workbook.Worksheets.Add("nomeAba");
 
             //Add Report Header
-            worksheet.Cells[1, 1].Value = "Applicant Statistics";
+            worksheet.Cells[1, 1].Value = "cabecalho";
             worksheet.Cells[1, 1, 1, 3].Merge = true;
 
             //Get the data you want to send to the excel file
             var appProg = Summaries.ToList();
             //First add the headers
-            worksheet.Cells[2, 1].Value = "SR No";
-            worksheet.Cells[2, 2].Value = "Program";
-            worksheet.Cells[2, 3].Value = "No. of Applicants";
+            worksheet.Cells[2, 1].Value = "numero";
+            worksheet.Cells[2, 2].Value = "texto";
+            worksheet.Cells[2, 3].Value = "descricao";
 
             //Add values
             var numberformat = "#,##0";
